@@ -46,3 +46,7 @@ end
 gem 'bundler'
 
 gem 'validates_formatting_of'
+
+gem "mechanize"
+gem "nokogiri"
+gem 'json'

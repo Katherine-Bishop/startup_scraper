@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608020332) do
+ActiveRecord::Schema.define(version: 20140608043344) do
 
   create_table "founders", force: true do |t|
     t.integer  "startup_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "founders", ["startup_id"], name: "index_founders_on_startup_id"

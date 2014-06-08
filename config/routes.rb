@@ -3,7 +3,9 @@ StartupScraper::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'startups#index'
+
+  get 'startups/scrape' => 'startups#scrape'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
