@@ -22,21 +22,22 @@ class StartupsController < ActionController::Base
   	page = agent.get "http://www.seed-db.com/accelerators/view?acceleratorid=2001"
   
   	links = page.links_with(:href => %r{/companies/view});
-  	# logger.debug "Link text: #{link.text}"
+  	# link = page.link_with(:href => %r{/companies/view});
 
 
 	# logger.debug "Links: #{links}"
 
   	links.each do |link|
-	  	@startup = Startup.new
-	  	@startup.name = link.text
-	  	@startup.save
 
 	  	page2 = link.click
 	  	if page2.link_with(:href => %r{/angel.co})
+		  	@startup = Startup.new
+		  	@startup.name = link.text
+		  	@startup.save
 	  		page3 = page2.link_with(:href => %r{/angel.co}).click
 	  	# angelListId = founderDiv[0]['data-id']
-		  	founderProfiles = page3.search("a.profile-link")
+		  	founderProfiles = page3.search("div.founders div.name a.profile-link")
+		  	logger.debug "Number of founders: #{founderProfiles.count}"
 		  	founderProfiles.each do |founder|
 		  		angelListId = founder['data-id']
 			  	angelProfile = agent.get "https://api.angel.co/1/users/"+angelListId
