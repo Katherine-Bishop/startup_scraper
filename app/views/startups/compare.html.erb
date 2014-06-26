@@ -1,0 +1,24 @@
+COMPARED!
+
+<h2>Startups in list but not database: <%= @startupsNotFoundCount %></h2>
+
+<ul>
+<% @startupsNotFound.each do |startupNotFound| %>
+	<li><%= startupNotFound %></li>
+<% end %>
+</ul>
+
+<h2>Startups in database but not list: <%= @startupsNotMatchedCount %></h2>
+
+<ul>
+<% @startupsNotMatched.each do |startupNotMatched| %>
+	<li><%= startupNotMatched %></li>
+<% end %>
+</ul>
+
+<h2>All Startups in database</h2>
+<ul>
+<% @startups.each do |startup| %>
+	<li><%= startup.name %></li>
+<% end %>
+</ul>

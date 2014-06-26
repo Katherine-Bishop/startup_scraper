@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Founder:</strong>
+  <%= @education.founder_id %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @education.school %>
+</p>
+
+<%= link_to 'Edit', edit_education_path(@education) %> |
+<%= link_to 'Back', educations_path %>

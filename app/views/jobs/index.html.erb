@@ -1,0 +1,35 @@
+<%= link_to "Gather Linkedin Data", :controller => :jobs, :action => :scrape %>
+
+<h1>Listing jobs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Founder</th>
+      <th>Position</th>
+      <th>Company</th>
+      <th>Company description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.founder_id %></td>
+        <td><%= job.position %></td>
+        <td><%= job.company %></td>
+        <td><%= job.company_description %></td>
+        <td><%= link_to 'Show', job %></td>
+        <td><%= link_to 'Edit', edit_job_path(job) %></td>
+        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Job', new_job_path %>

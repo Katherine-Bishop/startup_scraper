@@ -1,1 +1,21 @@
 <%= link_to "Scrape Data", :controller => :startups, :action => :scrape %>
+
+<!-- <p>Startups with angel list profiles: <%= @startups_with_angel_link %></p>
+<p>Startups without angel list profiles: <%= @startups_without_angel_link %></p> -->
+
+<!-- <p>Startups with founders: <%= @startups_with_founders %></p>
+
+<p>Startups with no founders: <%= @startups_with_no_founders %></p> -->
+
+<% @startups.each do |startup| %>
+	<p><%= startup.name %></p>
+<% end %>	
+
+
+<p>0 results: <%= @startups_with_zero_results %></p>
+<p>1 result: <%= @startups_with_one_result %></p>
+<p>More than 1 result: <%= @startups_with_multiple_results %></p>
+
+<% @angellistUrls.each do |url| %>
+	<p><%= url %></p>
+<% end %>

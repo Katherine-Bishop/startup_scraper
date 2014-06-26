@@ -11,21 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608043344) do
+ActiveRecord::Schema.define(version: 20140624010702) do
+
+  create_table "educations", force: true do |t|
+    t.integer  "founder_id"
+    t.string   "school"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "founders", force: true do |t|
     t.integer  "startup_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "linkedin_url"
+    t.integer  "connections"
   end
 
   add_index "founders", ["startup_id"], name: "index_founders_on_startup_id"
+
+  create_table "jobs", force: true do |t|
+    t.integer  "founder_id"
+    t.string   "position"
+    t.string   "company"
+    t.string   "company_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "startups", force: true do |t|
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "accelerator"
+    t.string   "angellist_url"
   end
 
 end

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  founder_id: 1
+  school: MyString
+
+two:
+  founder_id: 1
+  school: MyString
